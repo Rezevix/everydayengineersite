@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jacko's Repairs and Modding</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Jacko's <span>Repairs</span></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Get In <span class="gradient-text">Touch</span></h1>
+            <p>Ready to repair or upgrade your gaming gear? Let's talk!</p>
+        </div>
+    </section>
+
+    <section class="contact-container">
+        <div class="container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Type *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="console-repair">Console Repair</option>
+                        <option value="controller-repair">Controller Repair</option>
+                        <option value="custom-mod">Custom Modding</option>
+                        <option value="performance">Performance Upgrade</option>
+                        <option value="cleaning">Cleaning & Maintenance</option>
+                        <option value="diagnostic">Diagnostic</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="device">Device/Console</label>
+                    <input type="text" id="device" name="device" placeholder="e.g., PS5, Xbox Series X, DualSense Controller">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required placeholder="Please describe the issue or what you'd like done..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> Jacobburd870@gmail.com</p>
+                <p><strong>Phone:</strong> (+44) 07442 244042</p>
+                <p><strong>Hours:</strong> Mon-Fri: 9am-6pm, Sat: 10am-4pm</p>
+                <p style="margin-top: 2rem; color: #00ffff;">We typically respond within 24 hours</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Jacko's Repairs</h3>
+                    <p>Your trusted gaming hardware specialist</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: Jacobburd870@gmail.com</p>
+                    <p>Phone: (+44) 07442 244042</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Jacko's Repairs and Modding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -33,7 +33,7 @@ export async function onRequestPost({ request, env }) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: "Jacko's Repairs <contact@everydayengineer.uk>",
+        from: "Everyday Engineering <contact@everydayengineer.uk>",
         to: ["everydayengineeruk@gmail.com"],
         subject: `New ${service} enquiry from ${name}`,
         html: htmlBody

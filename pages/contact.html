@@ -28,7 +28,7 @@
 
     <section class="contact-container">
         <div class="container">
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" method="POST">
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input type="text" id="name" name="name" required>
@@ -98,8 +98,8 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Email: Jacobburd870@gmail.com</p>
-                    <p>Phone: (+44) 07442 244042</p>
+                    <p>Email: everydayengineeruk@gmail.com</p>
+                    <p>Phone: Coming Soon!</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -109,11 +109,24 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We\'ll get back to you soon.');
-            this.reset();
-        });
-    </script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const response = await fetch("/contact", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        alert("Message sent successfully. We'll get back to you within 24 hours.");
+        form.reset();
+    } else {
+        alert("Something went wrong. Please try again later.");
+    }
+});
+</script>
 </body>
 </html>

@@ -45,6 +45,47 @@ export async function onRequestPost({ request, env }) {
       console.error("Resend error:", error);
       return new Response("Email failed to send", { status: 500 });
     }
+    
+        // Build Discord embed payload
+    const discordPayload = {
+      embeds: [
+        {
+          title: "📩 New Website Enquiry",
+          description: `New ${service} enquiry received.`,
+          color: 3447003, // Change to your brand color (decimal)
+          fields: [
+            { name: "Name", value: name, inline: true },
+            { name: "Email", value: email, inline: true },
+            { name: "Phone", value: phone, inline: true },
+            { name: "Service", value: service, inline: true },
+            { name: "Device", value: device, inline: true },
+            {
+              name: "Message",
+              value: message.length > 1000
+                ? message.substring(0, 1000) + "..."
+                : message,
+              inline: false
+            }
+          ],
+          timestamp: new Date().toISOString()
+        }
+      ]
+    };
+
+    // Send to Discord
+    const discordResponse = await fetch(env.DISCORD_WEBHOOK_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(discordPayload)
+    });
+
+    // failiure logging
+    if (!discordResponse.ok) {
+      const error = await discordResponse.text();
+      console.error("Discord webhook error:", error);
+    }
 
     return new Response("OK", { status: 200 });
 

@@ -938,6 +938,12 @@ body::after {
         --space-3xl: 3rem;
     }
 
+    .page-header::before {
+    width: 300px;
+    height: 300px;
+    }
+
+
     /* NAVBAR STRUCTURE FIX */
     .nav-container {
         flex-direction: column;
